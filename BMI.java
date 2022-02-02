@@ -11,7 +11,32 @@ public class BMI {
     public BMI(double pounds, double inches) {
         this.setPounds(pounds);
         this.setInches(inches);
-        bmi = (pounds * KG) / (inches * METERS * inches * METERS);
+        this.calculateBmi();
+    }
+
+    public double getInches() {
+        return inches;
+    }
+
+    public void setInches(double inches) {
+        this.inches = inches;
+        this.calculateBmi();
+    }
+
+    public double setPounds() {
+        return pounds;
+    }
+
+    public void setPounds(double pounds) {
+        this.pounds = pounds;
+        this.calculateBmi();
+    }
+
+    public double getBmi() {
+        return bmi;
+    }
+
+    public String getIntepretation() {
         if (bmi < 18.5) {
             intepretation = "Underweight";
         } else if (bmi >= 18.5 && bmi < 25) {
@@ -21,30 +46,11 @@ public class BMI {
         } else {
             intepretation = "Obese";
         }
+        return this.intepretation;
     }
 
-    public double getInches() {
-        return inches;
-    }
-
-    public void setInches(double inches) {
-        this.inches = inches;
-    }
-
-    public double setPounds() {
-        return pounds;
-    }
-
-    public void setPounds(double pounds) {
-        this.pounds = pounds;
-    }
-
-    public double getBmi() {
-        return bmi;
-    }
-
-    public String getIntepretation() {
-        return intepretation;
+    private void calculateBmi() {
+        bmi = (pounds * KG) / (inches * METERS * inches * METERS);
     }
 
     public static void main(String[] args) {
